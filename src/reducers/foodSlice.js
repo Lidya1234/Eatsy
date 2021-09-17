@@ -1,30 +1,32 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   value: 0,
-}
+};
 
 export const foodSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
+    /* eslint-disable no-param-reassign */
     increment: (state) => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      state.value += 1
+      state.value += 1;
     },
     decrement: (state) => {
-      state.value -= 1
+      state.value -= 1;
     },
     incrementByAmount: (state, action) => {
-      state.value += action.payload
+      state.value += action.payload;
     },
   },
-})
+  /* eslint-enable no-param-reassign */
+});
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = foodSlice.actions
+export const { increment, decrement, incrementByAmount } = foodSlice.actions;
 
-export default foodSlice.reducer
+export default foodSlice.reducer;
