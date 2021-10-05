@@ -19,8 +19,7 @@ const signUserIn = createAsyncThunk('users/signUserIn',
   async (params) => {
     const { data } = await axios.post('http://localhost:30', params);
     return data;
-  }
-)
+  });
 
 export const userSlice = createSlice({
   name: 'users',
