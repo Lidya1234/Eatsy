@@ -1,32 +1,48 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 const initialState = {
-  value: 0,
+  foodList: [],
+  status: null,
 };
 
+const fetchFoodList = createAsyncThunk('foods/fetchFoodList',
+  async () => {
+    const { data } = await axios.get('http://localhost:3000/foods');
+    console.log(data);
+    return data;
+  });
+
 export const foodSlice = createSlice({
-  name: 'counter',
+  name: 'foods',
   initialState,
   reducers: {
     /* eslint-disable no-param-reassign */
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1;
+    // increment: (state) => {
+    //   state.value += 1;
+    // },
+    // decrement: (state) => {
+    //   state.value -= 1;
+    // },
+    // incrementByAmount: (state, action) => {
+    //   state.value += action.payload;
+    // },
+  },
+  extraReducers: {
+    [fetchFoodList.pending]: (state) => {
+      state.status = 'PENDING';
     },
-    decrement: (state) => {
-      state.value -= 1;
+    [fetchFoodList.fulfilled]: (state, action) => {
+      state.foodList = action.payload;
+      state.status = 'FULFILLED';
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    [fetchFoodList.rejected]: (state) => {
+      state.status = 'REJECTED';
     },
   },
   /* eslint-enable no-param-reassign */
 });
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = foodSlice.actions;
+export { fetchFoodList };
 
 export default foodSlice.reducer;
