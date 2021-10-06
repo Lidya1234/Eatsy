@@ -10,10 +10,12 @@ const store = configureStore({
     order: orderReducer,
   },
 });
+
 const order = {
   customer_id: 1,
   food_id: 1,
 };
+
 store.dispatch(fetchFoodList());
 store.dispatch(logUserIn({ email: 'admin@email.com', password: 1234 }));
 store.dispatch(fetchOrderList());
