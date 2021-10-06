@@ -24,13 +24,13 @@ const Login = ({ dispatch }) => {
   };
 
   return (
-    <div className="login">
-      <div className="form">
+    <div className="login d-flex align-items-center justify-content-center">
+      <div className="form d-flex align-items-center justify-content-center flex-column rounded">
         <h1>Login</h1>
-        <div className="logindetails" onChange={handleOnChange}>
-          <input type="email" className="inputs " placeholder="Email" />
-          <input type="password" className="inputs" placeholder="Password" />
-          <button type="button" className="button" onClick={handleSubmit}>Log in</button>
+        <div className="logindetails d-flex align-items-center flex-column" onChange={handleOnChange}>
+          <input type="email" className="inputs rounded p-2" placeholder="Email" />
+          <input type="password" className="inputs rounded p-2 mt-3" placeholder="Password" />
+          <button type="button" className="button mt-4 rounded" onClick={handleSubmit}>Log in</button>
         </div>
       </div>
     </div>
