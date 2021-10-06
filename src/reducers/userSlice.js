@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 
 const initialState = {
@@ -8,11 +9,24 @@ const initialState = {
 
 const logUserIn = createAsyncThunk('users/logUserIn',
   async (user) => {
-    const url = new URL('http://localhost:3000/login');
-    url.search = new URLSearchParams(user).toString();
-    const { data } = await axios.get(url);
-    console.log(data);
-    return data;
+    try {
+      const url = new URL('http://localhost:3000/login');
+      url.search = new URLSearchParams(user).toString();
+      const { data } = await axios.get(url);
+      console.log(data);
+      return data;
+    } catch {
+      toast.error('Server doesn\'t respond', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return null;
+    }
   });
 
 const signUserIn = createAsyncThunk('users/signUserIn',
@@ -61,6 +75,6 @@ export const userSlice = createSlice({
   /* eslint-enable no-param-reassign */
 });
 
-export { logUserIn };
+export { logUserIn, signUserIn };
 
 export default userSlice.reducer;
