@@ -25,11 +25,13 @@ const Login = ({ dispatch }) => {
 
   return (
     <div className="login">
-      <h1>Login</h1>
-      <div onChange={handleOnChange}>
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button type="button" onClick={handleSubmit}>Log in</button>
+      <div className="form">
+        <h1>Login</h1>
+        <div className="logindetails" onChange={handleOnChange}>
+          <input type="email" className="inputs " placeholder="Email" />
+          <input type="password" className="inputs" placeholder="Password" />
+          <button type="button" className="button" onClick={handleSubmit}>Log in</button>
+        </div>
       </div>
     </div>
   );
