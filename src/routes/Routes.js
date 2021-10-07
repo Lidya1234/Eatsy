@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Login from '../Components/Login/Login';
+import Signup from '../Components/Signup/Signup';
 
 const Routes = () => (
   <BrowserRouter>
@@ -19,6 +20,7 @@ const Routes = () => (
       />
       <div>
         <Route exact path="/" component={Login} />
+        <Route path="/signup" component={Signup} />
       </div>
     </div>
   </BrowserRouter>
