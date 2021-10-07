@@ -41,6 +41,7 @@ const Login = ({ dispatch }) => {
           <input type="email" className="inputs rounded p-2" placeholder="Email" />
           <input type="password" className="inputs rounded p-2 mt-3" placeholder="Password" />
           <Link to="/signup" className="mt-3">{'Don\'t have an account? Join us!'}</Link>
+          <Link to="/menu" className="mt-3">Menu</Link>
           <button type="button" className="button mt-4 rounded" onClick={handleSubmit}>Log in</button>
         </div>
       </div>
