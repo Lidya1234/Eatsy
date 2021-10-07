@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import { toastDark } from '../toast/toastSetup';
 
 const initialState = {
   user: null,
@@ -16,23 +17,20 @@ const logUserIn = createAsyncThunk('users/logUserIn',
       console.log(data);
       return data;
     } catch {
-      toast.error('Server doesn\'t respond', {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast.error('Server doesn\'t respond', toastDark);
       return null;
     }
   });
 
 const signUserIn = createAsyncThunk('users/signUserIn',
   async (params) => {
-    const { data } = await axios.post('http://localhost:30', params);
-    return data;
+    try {
+      const { data } = await axios.post('http://localhost:30', params);
+      return data;
+    } catch {
+      toast.error('Server doesn\'t respond', toastDark);
+      return null;
+    }
   });
 
 export const userSlice = createSlice({
