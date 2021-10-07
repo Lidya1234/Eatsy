@@ -16,6 +16,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+button, input {
+  border: none;
+}
+
 code {
   font-family:
     source-code-pro,
