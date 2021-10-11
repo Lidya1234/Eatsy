@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import foodReducer, { fetchFoodList } from './foodSlice';
-import userReducer, { logUserIn } from './userSlice';
-import orderReducer, { fetchOrderList, addOrderList } from './cartSlice';
+import foodReducer from './foodSlice';
+import userReducer from './userSlice';
+import orderReducer from './cartSlice';
 
 const store = configureStore({
   reducer: {
@@ -11,13 +11,4 @@ const store = configureStore({
   },
 });
 
-const order = {
-  customer_id: 1,
-  food_id: 1,
-};
-
-store.dispatch(fetchFoodList());
-store.dispatch(logUserIn({ email: 'admin@email.com', password: 1234 }));
-store.dispatch(fetchOrderList());
-store.dispatch(addOrderList(order));
 export default store;
