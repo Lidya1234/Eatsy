@@ -9,8 +9,8 @@ const initialState = {
 const fetchFoodList = createAsyncThunk('foods/fetchFoodList',
   async () => {
     const { data } = await axios.get('http://localhost:3000/foods');
-    console.log(data);
-    return data;
+    const final = await data;
+    return final.data;
   });
 
 export const foodSlice = createSlice({
