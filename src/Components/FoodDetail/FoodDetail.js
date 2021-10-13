@@ -9,7 +9,7 @@ export default function FoodDetail() {
   const { name, price, description } = data;
   return (
     <div className="foodDetail d-flex justify-content-center ">
-      <div className="imgContainer">
+      <div className="imgWrapper">
         <img src="./background-tree.jpg" className="rounded" alt="" />
       </div>
       <div className="description d-flex flex-column">
