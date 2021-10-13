@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import Login from '../Components/Login/Login';
 import Signup from '../Components/Signup/Signup';
 import Menu from '../Components/Menu/Menu';
+import FoodDetail from '../Components/FoodDetail/FoodDetail';
 
 const Routes = () => (
   <BrowserRouter>
@@ -23,6 +24,7 @@ const Routes = () => (
         <Route exact path="/" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/menu" component={Menu} />
+        <Route path="/foodDetail" component={FoodDetail} />
 
       </div>
     </div>
