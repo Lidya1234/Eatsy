@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './menu.scss';
-import Navbar from '../Navbar/Navbar';
 import Food from '../Food/Food';
 import { fetchFoodList } from '../../reducers/foodSlice';
 
@@ -12,9 +11,8 @@ const Menu = ({ dispatch, food }) => {
   }, []);
 
   return (
-    <div className="menu">
+    <div className="menu mt-3">
       <>
-        <Navbar />
         { food.foodList.length > 0 && food.foodList.map((food) => (
           <Food key={food.id} food={food} />
         ))}

@@ -1,10 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Login from '../Components/Login/Login';
 import Signup from '../Components/Signup/Signup';
 import Menu from '../Components/Menu/Menu';
 import FoodDetail from '../Components/FoodDetail/FoodDetail';
+import Navbar from '../Components/Navbar/Navbar';
 
 const Routes = () => (
   <BrowserRouter>
@@ -20,13 +21,15 @@ const Routes = () => (
         draggable
         pauseOnHover
       />
-      <div>
+      <Switch>
         <Route exact path="/" component={Login} />
         <Route path="/signup" component={Signup} />
-        <Route path="/menu" component={Menu} />
-        <Route path="/foodDetail" component={FoodDetail} />
-
-      </div>
+        <div>
+          <Navbar />
+          <Route path="/menu" component={Menu} />
+          <Route path="/foodDetail" component={FoodDetail} />
+        </div>
+      </Switch>
     </div>
   </BrowserRouter>
 );
