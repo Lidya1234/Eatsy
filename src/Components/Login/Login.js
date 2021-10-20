@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -7,9 +7,16 @@ import { toastDark } from '../../toast/toastSetup';
 import { logUserIn } from '../../reducers/userSlice';
 import './login.scss';
 
-const Login = ({ dispatch }) => {
+const Login = ({ dispatch, history, user }) => {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
+
+  useEffect(() => {
+    console.log(history);
+    if (user.user && user.status === 'FULFILLED') {
+      history.push('./menu');
+    }
+  }, [user]);
 
   const handleOnChange = (e) => {
     const elem = e.target;
@@ -51,6 +58,12 @@ const Login = ({ dispatch }) => {
 
 Login.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
+  user: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default connect()(Login);
+const mapStateToProps = (state) => ({
+  user: state.user,
+});
+
+export default connect(mapStateToProps)(Login);
