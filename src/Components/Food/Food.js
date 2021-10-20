@@ -8,7 +8,7 @@ const Food = ({ food }) => {
     <div className="wrapper mx-auto p-4 d-flex justify-content-between align-items-center rounded mt-3">
       <div className="item d-flex">
         <img src="./background-tree.jpg" className="rounded" alt="" />
-        <div className="description d-flex flex-column justify-content-center">
+        <div className="fs-5 description d-flex flex-column justify-content-center">
           <h5>{name}</h5>
           <p>{description}</p>
           <Link to={{

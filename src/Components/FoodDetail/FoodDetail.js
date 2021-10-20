@@ -12,14 +12,20 @@ export default function FoodDetail() {
       <div className="imgWrapper">
         <img src="./background-tree.jpg" className="rounded" alt="" />
       </div>
-      <div className="description d-flex flex-column">
-        <div className="descrip d-flex justify-content-between">
-          <h1>{name}</h1>
-          <p>{description}</p>
+      <div className="mt-4 container description d-flex flex-column">
+        <div className="fs-1 title d-flex justify-content-between">
+          <h2>{name}</h2>
+          <h2>{`$ ${price}`}</h2>
         </div>
-        <span>
-          {price}
-        </span>
+        <div className="mt-5 fs-4">
+          {description}
+        </div>
+      </div>
+      <div className="fixed-bottom add-btn w-100 d-flex justify-content-center">
+        <button type="button" className="rounded text-white px-3 py-2 fs-4">
+          Add to cart
+          <span className="ms-4 fw-bold fs-3">{` $ ${price}`}</span>
+        </button>
       </div>
     </div>
   );

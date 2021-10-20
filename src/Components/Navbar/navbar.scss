@@ -1,15 +1,14 @@
 .navb {
   width: 100%;
-
-	.wrapper{
+	.nav-wrap{
 		width: 75%;
 		height: 60px;
-		background-color: white;
+		background-color: #0a8791;
 		border-radius: 5px;
 
 		.links{
 			text-decoration: none;
-			color: #0a8791;
+			color: white;
 			font-size: 20px;
 			font-weight: bold; 
 		}

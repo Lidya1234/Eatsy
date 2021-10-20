@@ -1,7 +1,3 @@
-body {
-  background-color: #0a8791;
-}
-
 .menu{
   width: 100%;
   padding: 40px;
@@ -9,11 +5,11 @@ body {
 	.wrapper {
 		width: 75%;
 		background-color: white;
+    border: 3px solid #0a8791;
 	}
 
   .item{
     width: 60%;
-
     img{
       width: 100px;
       height: 100px;
@@ -21,8 +17,17 @@ body {
     .description{
       padding-left: 20px;
 			p {
-				color: #c2c2cb;
+				color: #9e9e9e;
 			}
+
+      a {
+        text-decoration: none;
+        color: #fba836;
+        &:hover {
+          text-decoration: underline;
+          color: rgb(255, 196, 113);
+        }
+      }
     }
   }
 

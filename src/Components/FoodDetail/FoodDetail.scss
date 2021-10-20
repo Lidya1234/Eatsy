@@ -15,7 +15,27 @@
 			width: 100vw;  
 		}
 	}
-	.description{
-		
+
+	.description {
+		.title {
+			h2 {
+				font-size: 3rem;
+			}
+
+			h2:last-child {
+				color: #fba836;
+			}
+		}
+	}
+
+	.add-btn {
+		bottom: 20px;
+		button {
+			background-color: #0a8791;
+			transition: 0.15s;
+			&:hover {
+				background-color: #10b4c0;
+			}
+		}
 	}
 }
