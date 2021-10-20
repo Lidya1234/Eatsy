@@ -14,10 +14,13 @@ const logUserIn = createAsyncThunk('users/logUserIn',
       const url = new URL('http://localhost:3000/login');
       url.search = new URLSearchParams(user).toString();
       const { data } = await axios.get(url);
-      console.log(data);
+      if (data.errors) {
+        toast.warning(data.errors[0], toastDark);
+        return null;
+      }
       return data;
     } catch {
-      toast.error('Server doesn\'t respond', toastDark);
+      toast.error('Server does not respond', toastDark);
       return null;
     }
   });
