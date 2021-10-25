@@ -54,6 +54,11 @@ export const userSlice = createSlice({
     // incrementByAmount: (state, action) => {
     //   state.value += action.payload;
     // },
+    logout: (state) => {
+      state.user = null;
+      state.status = null;
+    },
+
   },
   extraReducers: {
     [logUserIn.pending]: (state) => {
@@ -80,6 +85,7 @@ export const userSlice = createSlice({
   /* eslint-enable no-param-reassign */
 });
 
-export { logUserIn, signUserIn };
+const { logout } = userSlice.actions;
+export { logUserIn, signUserIn, logout };
 
 export default userSlice.reducer;
