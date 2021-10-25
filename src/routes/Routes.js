@@ -24,11 +24,11 @@ const Routes = () => (
       <Switch>
         <Route exact path="/" component={Login} />
         <Route path="/signup" component={Signup} />
-        <div>
+        <>
           <Navbar />
           <Route path="/menu" component={Menu} />
           <Route path="/foodDetail" component={FoodDetail} />
-        </div>
+        </>
       </Switch>
     </div>
   </BrowserRouter>
