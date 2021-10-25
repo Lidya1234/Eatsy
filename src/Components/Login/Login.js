@@ -12,7 +12,7 @@ const Login = ({ dispatch, history, user }) => {
   const [userPassword, setUserPassword] = useState('');
 
   useEffect(() => {
-    console.log(history);
+    console.log(user);
     if (user.user && user.status === 'FULFILLED') {
       history.push('./menu');
     }
