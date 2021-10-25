@@ -28,10 +28,14 @@ const logUserIn = createAsyncThunk('users/logUserIn',
 const signUserIn = createAsyncThunk('users/signUserIn',
   async (params) => {
     try {
-      const { data } = await axios.post('http://localhost:30', params);
+      const { data } = await axios.post('http://localhost:3000/user', params);
+      if (data.errors) {
+        toast.warning(data.errors[0], toastDark);
+        return null;
+      }
       return data;
     } catch {
-      toast.error('Server doesn\'t respond', toastDark);
+      toast.error('Server does not respond', toastDark);
       return null;
     }
   });
